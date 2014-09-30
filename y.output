@@ -3,7 +3,7 @@ state 0
 	$accept: .input $end 
 	input: .    (1)
 
-	.  reduce 1 (src line 29)
+	.  reduce 1 (src line 30)
 
 	input  goto 1
 
@@ -25,7 +25,7 @@ state 1
 state 2
 	input:  input line.    (2)
 
-	.  reduce 2 (src line 30)
+	.  reduce 2 (src line 31)
 
 
 3: shift/reduce conflict (shift 10(1), red'n 3(0)) on '-'
@@ -40,7 +40,7 @@ state 3
 	'+'  shift 9
 	'*'  shift 11
 	'/'  shift 12
-	.  reduce 3 (src line 33)
+	.  reduce 3 (src line 34)
 
 
 state 4
@@ -48,7 +48,7 @@ state 4
 	exp:  VAR.    (13)
 
 	'='  shift 13
-	.  reduce 13 (src line 45)
+	.  reduce 13 (src line 46)
 
 
 state 5
@@ -85,7 +85,7 @@ state 7
 state 8
 	exp:  NUM.    (12)
 
-	.  reduce 12 (src line 44)
+	.  reduce 12 (src line 45)
 
 
 state 9
@@ -166,7 +166,7 @@ state 14
 state 15
 	exp:  VAR.    (13)
 
-	.  reduce 13 (src line 45)
+	.  reduce 13 (src line 46)
 
 
 state 16
@@ -188,7 +188,7 @@ state 17
 	exp:  exp.'/' exp 
 	exp:  '-' exp.    (11)
 
-	.  reduce 11 (src line 43)
+	.  reduce 11 (src line 44)
 
 
 state 18
@@ -200,7 +200,7 @@ state 18
 
 	'*'  shift 11
 	'/'  shift 12
-	.  reduce 6 (src line 38)
+	.  reduce 6 (src line 39)
 
 
 state 19
@@ -212,7 +212,7 @@ state 19
 
 	'*'  shift 11
 	'/'  shift 12
-	.  reduce 7 (src line 39)
+	.  reduce 7 (src line 40)
 
 
 state 20
@@ -222,7 +222,7 @@ state 20
 	exp:  exp '*' exp.    (8)
 	exp:  exp.'/' exp 
 
-	.  reduce 8 (src line 40)
+	.  reduce 8 (src line 41)
 
 
 state 21
@@ -232,7 +232,7 @@ state 21
 	exp:  exp.'/' exp 
 	exp:  exp '/' exp.    (9)
 
-	.  reduce 9 (src line 41)
+	.  reduce 9 (src line 42)
 
 
 22: shift/reduce conflict (shift 10(1), red'n 4(0)) on '-'
@@ -247,13 +247,13 @@ state 22
 	'+'  shift 9
 	'*'  shift 11
 	'/'  shift 12
-	.  reduce 4 (src line 34)
+	.  reduce 4 (src line 35)
 
 
 state 23
 	exp:  '(' exp ')'.    (5)
 
-	.  reduce 5 (src line 37)
+	.  reduce 5 (src line 38)
 
 
 state 24
@@ -274,7 +274,7 @@ state 24
 state 25
 	exp:  INV '(' exp ')'.    (10)
 
-	.  reduce 10 (src line 42)
+	.  reduce 10 (src line 43)
 
 
 14 terminals, 4 nonterminals
