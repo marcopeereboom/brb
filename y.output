@@ -1,0 +1,291 @@
+
+state 0
+	$accept: .input $end 
+	input: .    (1)
+
+	.  reduce 1 (src line 29)
+
+	input  goto 1
+
+state 1
+	$accept:  input.$end 
+	input:  input.line 
+
+	$end  accept
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 4
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 3
+	line  goto 2
+
+state 2
+	input:  input line.    (2)
+
+	.  reduce 2 (src line 30)
+
+
+3: shift/reduce conflict (shift 10(1), red'n 3(0)) on '-'
+state 3
+	line:  exp.    (3)
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+
+	'-'  shift 10
+	'+'  shift 9
+	'*'  shift 11
+	'/'  shift 12
+	.  reduce 3 (src line 33)
+
+
+state 4
+	line:  VAR.'=' exp 
+	exp:  VAR.    (13)
+
+	'='  shift 13
+	.  reduce 13 (src line 45)
+
+
+state 5
+	exp:  '('.exp ')' 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 14
+
+state 6
+	exp:  INV.'(' exp ')' 
+
+	'('  shift 16
+	.  error
+
+
+state 7
+	exp:  '-'.exp 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 17
+
+state 8
+	exp:  NUM.    (12)
+
+	.  reduce 12 (src line 44)
+
+
+state 9
+	exp:  exp '+'.exp 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 18
+
+state 10
+	exp:  exp '-'.exp 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 19
+
+state 11
+	exp:  exp '*'.exp 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 20
+
+state 12
+	exp:  exp '/'.exp 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 21
+
+state 13
+	line:  VAR '='.exp 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 22
+
+state 14
+	exp:  '(' exp.')' 
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+
+	'-'  shift 10
+	'+'  shift 9
+	'*'  shift 11
+	'/'  shift 12
+	')'  shift 23
+	.  error
+
+
+state 15
+	exp:  VAR.    (13)
+
+	.  reduce 13 (src line 45)
+
+
+state 16
+	exp:  INV '('.exp ')' 
+
+	NUM  shift 8
+	INV  shift 6
+	VAR  shift 15
+	'-'  shift 7
+	'('  shift 5
+	.  error
+
+	exp  goto 24
+
+state 17
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+	exp:  '-' exp.    (11)
+
+	.  reduce 11 (src line 43)
+
+
+state 18
+	exp:  exp.'+' exp 
+	exp:  exp '+' exp.    (6)
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+
+	'*'  shift 11
+	'/'  shift 12
+	.  reduce 6 (src line 38)
+
+
+state 19
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp '-' exp.    (7)
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+
+	'*'  shift 11
+	'/'  shift 12
+	.  reduce 7 (src line 39)
+
+
+state 20
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp '*' exp.    (8)
+	exp:  exp.'/' exp 
+
+	.  reduce 8 (src line 40)
+
+
+state 21
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+	exp:  exp '/' exp.    (9)
+
+	.  reduce 9 (src line 41)
+
+
+22: shift/reduce conflict (shift 10(1), red'n 4(0)) on '-'
+state 22
+	line:  VAR '=' exp.    (4)
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+
+	'-'  shift 10
+	'+'  shift 9
+	'*'  shift 11
+	'/'  shift 12
+	.  reduce 4 (src line 34)
+
+
+state 23
+	exp:  '(' exp ')'.    (5)
+
+	.  reduce 5 (src line 37)
+
+
+state 24
+	exp:  exp.'+' exp 
+	exp:  exp.'-' exp 
+	exp:  exp.'*' exp 
+	exp:  exp.'/' exp 
+	exp:  INV '(' exp.')' 
+
+	'-'  shift 10
+	'+'  shift 9
+	'*'  shift 11
+	'/'  shift 12
+	')'  shift 25
+	.  error
+
+
+state 25
+	exp:  INV '(' exp ')'.    (10)
+
+	.  reduce 10 (src line 42)
+
+
+14 terminals, 4 nonterminals
+14 grammar rules, 26/2000 states
+2 shift/reduce, 0 reduce/reduce conflicts reported
+53 working sets used
+memory: parser 10/30000
+11 extra closures
+69 shift entries, 1 exceptions
+11 goto entries
+0 entries saved by goto default
+Optimizer space used: output 44/30000
+44 table entries, 5 zero
+maximum spread: 14, maximum offset: 16
