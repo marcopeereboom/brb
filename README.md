@@ -7,14 +7,14 @@ When using lots of big.Rats in go it quickly becomes a painful.
 Brb works around that by allowing natural expressions that deal with big.Rats.
 For example:
 ```Go
-	rv, err := new(Interpreter).Run("-12+13*(15+1)")
+	rv, err := new(brb.Interpreter).Run("-12+13*(15+1)")
 ```
 After running this rv contains a big.Rat that is set to 196/1.
 
 It supports positional arguments as well as variables.
 For example:
 ```Go
-	rv, err := new(Interpreter).Run(`
+	rv, err := new(brb.Interpreter).Run(`
 		a = 99
 		$1 + a
 	`, new(big.Rat).SetFloat64(1.0))
@@ -24,7 +24,7 @@ After running this rv contains a big.Rat that is set to 100/1.
 Variables can be  interrogated after the fact.
 For example:
 ```Go
-	i := New()
+	i := brb.New()
 	_, err := i.Run(`
 		a = 112.8
 		a = a + 42.2
