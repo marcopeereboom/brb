@@ -21,7 +21,7 @@ For example:
 ```
 After running this rv contains a big.Rat that is set to 100/1.
 
-Variables can be  interogated after the fact.
+Variables can be  interrogated after the fact.
 For example:
 ```Go
 	i := New()
@@ -35,6 +35,6 @@ After running this er contains a big.Rat that is set to 155/1.
 
 Look at brb_test.go for more examples.
 
-The repo comes with pre-generated lex and yacc target files.
+The repository comes with pre-generated lex and yacc target files.
 One can generate those themselves by running make however, this should not be
 needed.
