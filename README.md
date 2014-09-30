@@ -11,6 +11,28 @@ For example:
 ```
 After running this rv contains a big.Rat that is set to 196/1.
 
+It supports positional arguments as well as variables.
+For example:
+```Go
+	rv, err := new(Interpreter).Run(`
+		a = 99
+		$1 + a
+	`, new(big.Rat).SetFloat64(1.0))
+```
+After running this rv contains a big.Rat that is set to 100/1.
+
+Variables can be  interogated after the fact.
+For example:
+```Go
+	i := New()
+	_, err := i.Run(`
+		a = 112.8
+		a = a + 42.2
+	`)
+	er, err := i.GetVar("a")
+```
+After running this er contains a big.Rat that is set to 155/1.
+
 Look at brb_test.go for more examples.
 
 The repo comes with pre-generated lex and yacc target files.
