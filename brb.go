@@ -18,7 +18,7 @@ var (
 	// exist.
 	ErrVariableNotFound = errors.New("variable not found")
 
-	// ErrNoResult is returned if the script has not return value but was.
+	// ErrNoResult is returned if the script has not return value but was
 	// successful.
 	// Variables may or may not have been set.
 	ErrNoResult = errors.New("no result")
