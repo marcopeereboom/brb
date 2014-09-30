@@ -22,7 +22,7 @@ type yylexer struct {
 
 func newLexer(src *bufio.Reader, args ...interface{}) *yylexer {
 	y := yylexer{
-		line:      0,
+		line:      1,
 		src:       src,
 		args:      args,
 		variables: make(map[string]*big.Rat),
